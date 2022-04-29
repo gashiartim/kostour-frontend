@@ -1,13 +1,13 @@
-import styles from '../styles/Home.module.css'
+import Header from "../src/components/Header/Header";
+import Banner from "../src/components/shared/Banner/Banner";
 
 const Home = () => {
   return (
-    <div className= "w-auto mt-5">
-        <h3 className="text-center">
-          Hello KosTour
-        </h3>
+    <div className="bg-black">
+      <Header />
+      <Banner />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
