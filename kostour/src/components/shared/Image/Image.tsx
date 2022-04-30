@@ -35,10 +35,10 @@ export const Image = (props: Props) => {
             props.id ? props.onDelete(props.id) : props.onDelete(props.photoId);
           }}
         >
-          <Icon
+          {/* <Icon
             icon="exit-icon"
             className="mx-auto mb-2 !text-red-600 !fill-[red]"
-          />
+          /> */}
         </div>
       </div>
     </div>
