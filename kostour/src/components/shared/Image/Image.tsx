@@ -1,9 +1,6 @@
-
 import React from "react";
 import cs from "classnames";
 import { Icon } from "../Icon/Icon";
-
-
 
 interface Props {
   src: string | undefined;
@@ -36,7 +33,7 @@ export const Image = (props: Props) => {
           }}
         >
           <Icon
-            icon="exit-icon"
+            // icon="exit-icon"
             className="mx-auto mb-2 !text-red-600 !fill-[red]"
           />
         </div>
