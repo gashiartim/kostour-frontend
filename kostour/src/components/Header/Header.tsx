@@ -13,7 +13,7 @@ const navItems = [
 const Header = () => {
   const { pathname } = useRouter();
   return (
-    <div className="container relative z-10 flex flex-col px-[200px]">
+    <div className="container relative z-10 flex flex-col p-5 mx-auto  md:p-[20px]">
       <div className="flex  flex-row items-center justify-between">
         <div className="text-[#B0B0B0]">Dark mode</div>
         <div className="relative ">
@@ -27,7 +27,7 @@ const Header = () => {
           className="flex items-center cursor-pointer w-full"
           onClick={() => router.push("/")}
         >
-          <Icon icon="KOS-TOUR" className="h-14 text-black " />
+          <Icon icon="KOS-TOUR" className="text-black " />
         </div>
 
         <div className="font-bold ">
