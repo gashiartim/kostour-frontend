@@ -32,10 +32,15 @@ export const Image = (props: Props) => {
             props.id ? props.onDelete(props.id) : props.onDelete(props.photoId);
           }}
         >
+<<<<<<< HEAD
+          {/* <Icon
+            icon="exit-icon"
+=======
           <Icon
             // icon="exit-icon"
+>>>>>>> e5794b215851857cd9232c829c42f72b35ebc97f
             className="mx-auto mb-2 !text-red-600 !fill-[red]"
-          />
+          /> */}
         </div>
       </div>
     </div>
