@@ -1,12 +1,12 @@
 import login from "../../src/assets/images/login-page.png";
 import Image from "next/image";
-import LoginForm from "../../src/components/LoginForm/LoginForm";
+import RegisterForm from "../../src/components/RegisterForm/RegisterForm";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="flex justify-center h-screen bg-[#EAF1FB]  md:grid md:grid-cols-2">
       <div className="absolute z-50 mx-2.5 md:relative md:mx-auto mt-[153px]">
-        <LoginForm />
+        <RegisterForm />
       </div>
       <div>
         <Image
@@ -20,4 +20,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default Register;
