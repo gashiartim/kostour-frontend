@@ -15,7 +15,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       className={cs(
-        "w-full text-sm flex items-center justify-center py-2.5 px-4 font-medium rounded text-white bg-[#10356D] hover:bg-darkPrimary  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-300 disabled:cursor-not-allowed",
+        "w-full text-sm flex items-center justify-center py-3.5 px-4 font-medium rounded text-white bg-[#10356D] hover:bg-darkPrimary  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-300 disabled:cursor-not-allowed",
         className
       )}
       {...rest}

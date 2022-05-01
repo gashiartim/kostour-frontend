@@ -6,7 +6,7 @@ import Input from "../shared/Input/Input";
 const LoginForm = () => {
   return (
     <div className="md:mt-[37px] mt-6 md:w-max">
-      <h1 className="text-4xl">Welcome back</h1>
+      <h1 className="text-4xl leading-10">Welcome back</h1>
       <h1 className="text-sm text-[#676767] ">
         Please enter your details or
         <Link href="/register" passHref>

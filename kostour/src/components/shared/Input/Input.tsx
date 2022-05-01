@@ -49,7 +49,7 @@ const Input = (props: InputProps) => {
       <input
         id={id}
         className={cs(
-          "bg-white leading-4 relative block w-full px-4 py-3 border-[#10356D] border-1 placeholder-gray text-xs  text-black rounded focus:outline-none focus:border-[#10356D] ",
+          "bg-white leading-4 relative block w-full px-4 py-3.5 border-[#10356D] border-1 placeholder-gray text-xs  text-black rounded focus:outline-none focus:border-[#10356D] ",
           inputClassName,
           { "border-red-400": !!error }
         )}

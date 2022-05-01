@@ -2,6 +2,8 @@ import router, { useRouter } from "next/router";
 import cs from "classnames";
 import { Icon } from "../shared/Icon/Icon";
 import Link from "next/link";
+import { UserDropdown } from "../Dropdown/UserDropdown";
+import SwitchMode from "../SwitchMode/SwitchMode";
 
 const navItems = [
   { title: "home", link: "/" },
@@ -15,11 +17,10 @@ const Header = () => {
   return (
     <div className="container relative z-10 flex flex-col p-5 mx-auto  md:p-[20px]">
       <div className="flex  flex-row items-center justify-between">
-        <div className="text-[#B0B0B0]">Dark mode</div>
+        <SwitchMode />
+
         <div className="relative ">
-          <i className="fas fa-user-circle text-[22px] mr-2"></i>
-          Hello
-          <i className="fas fa-chevron-down text-blue ml-6"></i>
+          <UserDropdown />
         </div>
       </div>
       <div className="flex flex-row items-center justify-between">
