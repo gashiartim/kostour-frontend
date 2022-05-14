@@ -1,3 +1,5 @@
+import { Icon } from "../shared/Icon/Icon";
+
 interface Props {
   id: number;
   title: string;
@@ -19,7 +21,7 @@ const Questions = (props: Props) => {
             </h4>
           </div>
           <button className="bg-black  lg:md:w-[48px] lg:md:h-[48px] px-3 py-2 lg:md:p-0 text-white rounded-full font-medium lg:md:text-3xl transition duration-150 ease-in">
-            <i className="fa fa-plus" />
+            <Icon icon="plus" className="w-[16px] m-auto" />
           </button>
         </div>
         <p
