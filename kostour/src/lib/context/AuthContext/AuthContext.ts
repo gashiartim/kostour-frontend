@@ -1,12 +1,12 @@
-import { User } from "../../../api/User";
+import { IProfile, LoginRegisterResponse, User } from "../../../api/User";
 import React, { useContext } from "react";
 
 export interface AuthContextType {
   isAuthenticated: boolean;
   isLoading?: boolean;
-  user?: User;
+  user?: IProfile;
   error?: any;
-  login: (user: User, token?: string) => void;
+  login: (user: LoginRegisterResponse) => void;
   logout: () => void;
 }
 

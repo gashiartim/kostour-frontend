@@ -34,6 +34,7 @@ const LoginForm = () => {
           register={register}
           placeholder="Enter your email"
           hiddenLabel={false}
+          error={errors.email?.message}
         />
         <Input
           className="mt-2"
@@ -42,6 +43,7 @@ const LoginForm = () => {
           register={register}
           placeholder="*********"
           hiddenLabel={false}
+          error={errors.password?.message}
         />
         <div className="w-[330px] flex justify-between mt-3 mb-6">
           <span className="text-[#292828] text-[11px]">

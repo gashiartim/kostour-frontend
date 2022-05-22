@@ -1,7 +1,12 @@
 import { checkTokenExpiration } from "../../helpers/checkTokenExpiration";
 import React, { useEffect, useState } from "react";
 
-import { getUserDetails, User } from "../../../api/User";
+import {
+  getUserDetails,
+  IProfile,
+  LoginRegisterResponse,
+  User,
+} from "../../../api/User";
 import axios from "axios";
 import localforage from "localforage";
 import { AuthContextType, AuthContext } from "./AuthContext";
@@ -16,7 +21,7 @@ export const LOCAL_STORAGE_KEY = "KOSTOUR";
 
 export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | undefined>(undefined);
+  const [user, setUser] = useState<any>(undefined);
   const [error, setError] = useState<any>();
   const router = useRouter();
 
@@ -28,7 +33,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     const userStorageDetails = await localforage.getItem<string>(
       LOCAL_STORAGE_KEY
     );
-
+    console.log(userStorageDetails);
     // axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
     if (!userStorageDetails || checkTokenExpiration(userStorageDetails)) {
       setLoading(false);
@@ -48,10 +53,11 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     }
   };
 
-  const login = (user: any | User) => {
-    setUser({ profile: { ...user }, token: user.token });
-    axios.defaults.headers.common.Authorization = `Bearer ${user.token}`;
-    localforage.setItem(LOCAL_STORAGE_KEY, user.token);
+  const login = (user: LoginRegisterResponse) => {
+    console.log(user.user);
+    setUser({ profile: { ...user.user }, token: user.access_token });
+    axios.defaults.headers.common.Authorization = `Bearer ${user.access_token}`;
+    localforage.setItem(LOCAL_STORAGE_KEY, user.access_token);
     router.push("/");
   };
 

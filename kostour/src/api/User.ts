@@ -2,46 +2,26 @@ import { apiRequest } from "./Api";
 
 
 export interface IProfile {
-  business: {
-    business_id: string;
-    user_id: string;
-  };
-  id: string;
-  birthday: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  phone: number;
-  token: string;
-  created_at: string;
-  updated_at: string;
-  username: string;
-  role: {
-    id: string;
-    name: string;
-    slug: string;
-  };
-  role_id: string;
-  preferences: [];
-  is_email_confirmed: boolean;
-  google_id?: string;
-  facebook_id?: string;
- 
-  file: File[];
-  description: string;
+  email: string
+first_name: string
+id:string
+last_name: string
+role: string
 }
 
 export interface User {
-  profile: IProfile;
-  token?: string;
+  user: IProfile;
+  // access_token?: string;
 }
 export interface LoginRegisterResponse {
-  success: string;
   user: User;
+  access_token:string
 }
 
 export interface RegisterInput {
-  name: string;
+  first_name: string;
+  last_name: string;
+  password_confirm:string
   email: string;
   password: string;
   phone:string
@@ -78,7 +58,7 @@ export const register = async (data: RegisterInput) =>
   );
 
 export const login = async (data: LoginInput) =>
-  apiRequest<LoginInput, LoginRegisterResponse>("post", "auth/login", data);
+  apiRequest<LoginInput, any>("post", "auth/login", data);
 
 export const loginWithFacebook = async (access_token: string) =>
   await apiRequest<FacebookLoginInput, LoginRegisterResponse>(
@@ -95,10 +75,11 @@ export const loginWithFacebook = async (access_token: string) =>
 
 export interface UserSignupInput {
   email: string;
-  name: string;
+  first_name: string;
+  last_name: string;
   phone: string;
   password: string;
-  password_confirm?: string;
+  password_confirm: string;
 
 }
 
