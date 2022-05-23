@@ -1,8 +1,10 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import "tailwindcss/tailwind.css";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { AuthContextProvider } from "../src/lib/context/AuthContext/AuthContextProvider";
+
+import "tailwindcss/tailwind.css";
+import "react-toastify/dist/ReactToastify.css";
+import "../styles/globals.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
