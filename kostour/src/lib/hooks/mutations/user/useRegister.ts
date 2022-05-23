@@ -1,8 +1,11 @@
 import { useMutation, UseMutationOptions } from "react-query";
 import { toast } from "react-toastify";
-import { LoginRegisterResponse, registerUser, UserSignupInput } from "../../../../api/User";
+import {
+  LoginRegisterResponse,
+  registerUser,
+  UserSignupInput,
+} from "../../../../api/User";
 import { useRouter } from "next/router";
-
 
 export const useRegister = (
   options?: UseMutationOptions<

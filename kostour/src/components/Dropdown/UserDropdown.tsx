@@ -19,7 +19,7 @@ export interface IUserDropdownProps {
 export function UserDropdown(props: IUserDropdownProps) {
   const router = useRouter();
   const authCtx = useAuthContext();
-  console.log(authCtx);
+
   const options = authCtx.isAuthenticated
     ? [
         {
@@ -46,7 +46,7 @@ export function UserDropdown(props: IUserDropdownProps) {
       <Menu.Button>
         <div className="flex items-center px-3.5 py-2.5  border-opacity-40 rounded-2.5  opacity-50">
           {authCtx.user?.first_name && authCtx.user?.first_name !== null && (
-            <div className="mx-2">{`${authCtx.user?.first_name} ${authCtx.user?.last_name}`}</div>
+            <div className="mx-2 text-white">{`${authCtx.user?.first_name} ${authCtx.user?.last_name}`}</div>
           )}
           <Icon icon="user" className="text-[#3F86F0] fill-white" />
           <span className="ml-2">
@@ -63,7 +63,7 @@ export function UserDropdown(props: IUserDropdownProps) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute z-10 right-0 w-52 mt-2 origin-top-right bg-white divide-y divide-gray-100  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border-2 border-gray-400 ">
+        <Menu.Items className="absolute right-0 z-10 mt-2 origin-top-right bg-white border-2 border-gray-400 divide-y divide-gray-100 shadow-lg w-52 ring-1 ring-black ring-opacity-5 focus:outline-none ">
           <div className="py-3">
             {options.map((option) => {
               const { id, ...rest } = option;

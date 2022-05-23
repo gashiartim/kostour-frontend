@@ -16,7 +16,7 @@ const Header = () => {
   const { pathname } = useRouter();
   return (
     <div className="container relative z-10 flex flex-col p-5 mx-auto  md:p-[20px]">
-      <div className="flex  flex-row items-center justify-between">
+      <div className="flex flex-row items-center justify-between">
         <SwitchMode />
 
         <div className="relative ">
@@ -25,7 +25,7 @@ const Header = () => {
       </div>
       <div className="flex flex-row items-center justify-between">
         <div
-          className="flex items-center cursor-pointer w-full"
+          className="flex items-center w-full cursor-pointer"
           onClick={() => router.push("/")}
         >
           <Icon icon="KOS-TOUR" className="text-black " />

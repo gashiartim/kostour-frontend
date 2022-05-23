@@ -30,20 +30,21 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   }, []);
 
   const authenticate = async () => {
-    const userStorageDetails = await localforage.getItem<string>(
-      LOCAL_STORAGE_KEY
-    );
-    console.log(userStorageDetails);
-    // axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
-    if (!userStorageDetails || checkTokenExpiration(userStorageDetails)) {
-      setLoading(false);
-      setUser(undefined);
-      return;
-    }
-    axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
-
     try {
+      const userStorageDetails = await localforage.getItem<string>(
+        LOCAL_STORAGE_KEY
+      );
+      console.log(userStorageDetails);
+      // axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
+      if (!userStorageDetails || checkTokenExpiration(userStorageDetails)) {
+        setLoading(false);
+        setUser(undefined);
+        return;
+      }
+      axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
+
       const res = await getUserDetails();
+
       setUser(res);
     } catch (err: any) {
       setError(err);
@@ -54,11 +55,17 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   };
 
   const login = (user: LoginRegisterResponse) => {
-    console.log(user.user);
-    setUser({ profile: { ...user.user }, token: user.access_token });
-    axios.defaults.headers.common.Authorization = `Bearer ${user.access_token}`;
-    localforage.setItem(LOCAL_STORAGE_KEY, user.access_token);
-    router.push("/");
+    setLoading(true);
+    try {
+      setUser({ ...user.user });
+      axios.defaults.headers.common.Authorization = `Bearer ${user.access_token}`;
+      localforage.setItem(LOCAL_STORAGE_KEY, user.access_token);
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const logout = async () => {
