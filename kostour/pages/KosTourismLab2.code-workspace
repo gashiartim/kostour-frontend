@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"path": "../.."
+	},
+	{
+		"path": "../../../kostour-monolith-backend"
+	}
+],
+  "settings": {}
+}

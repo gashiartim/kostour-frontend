@@ -1,6 +1,54 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: [
+      "localhost",
+      "api.culture.k-clients.com",
+      "s1.ticketm.net",
+      "encrypted-tbn0.gstatic.com",
+      "cdn-az.allevents.in",
+      "cdn2.allevents.in",
+      "assets.simpleviewinc.com",
+      "media.blogto.com",
+      "secure.toronto.ca",
+      "dynamicmedia.zuza.com",
+      "www.houston.org",
+      "assets-global.website-files.com",
+      "s28164.pcdn.co",
+      "i.ticketweb.com",
+      "images.universe.com",
+      "data.parkbench.com",
+      "citysparkstorage.blob.core.windows.net",
+      "mallmaverick.imgix.net",
+      "images.sk-static.com",
+      "images.discotech.me",
+      "www.google.com",
+      "img.evbuc.com",
+      "photos.bandsintown.com",
+      "i.axs.com",
+      "www.downtownhouston.org",
+      "www.danceus.org",
+      "cdn.wegow.com",
+      "www.vegas4locals.com",
+    ],
+  },
+  env: {
+    // NEXTAUTH_URL: "http://localhost:3000",
+    // NEXT_APP_URL: "https://culture.k-clients.com/",
+    // API: "https://api.culture.k-clients.com/api",
+    // LOCAL_API: "http://192.168.0.111:3014/api",
+    // FACEBOOK_ID: "175784944725121",
+    // FACEBOOK_SECRET: "b948952d434f519a4b4aa08f3085482d",
+    // I18NEXUS_API_KEY: "GYiuIqY5yPqC083dxbmsbQ",
+    // AUTH0_DOMAIN: "dev-mkp8z9h6.us.auth0.com",
+    // AUTH0_CLIENT_ID: "pLJSawMQirCVzN93LBDV0H9UAfE7QVXk",
+    // GOOGLE_API_KEY: "AIzaSyCny1F5hkGLRTSwVfJ3Ex3kpRVPr6YaoTY",
+    // IMAGE_URL: "https://api.culture.k-clients.com",
+    // GOOGLE_CLIENT_ID:
+    //   "99725463856-lr11e9dnkgildn2ojk30has2sh8kvinl.apps.googleusercontent.com",
+    // GOOGLE_CLIENT_SECRET: "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",
+    // GOOGLE_URI: "https://culture.k-clients.com",
+  },
+};
