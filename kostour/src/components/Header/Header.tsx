@@ -10,6 +10,7 @@ const navItems = [
   { title: "activities", link: "/activities" },
   { title: "locations", link: "/locations" },
   { title: "tours", link: "/tours" },
+  { title: "about", link: "/about" },
 ];
 
 const Header = () => {
