@@ -1,3 +1,4 @@
+import { Id } from "react-toastify";
 import { apiRequest } from "./Api";
 
 export interface LocationsResponse{
@@ -14,3 +15,9 @@ export const allLocations = async () => {
       `locations`
     );
   };
+
+  export const getLocation=async (id:string) =>
+  apiRequest<any,LocationsResponse>(
+    "get",
+    `locations/${id}`
+  )
