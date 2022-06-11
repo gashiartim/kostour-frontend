@@ -81,10 +81,10 @@ export const Carousel = (props: Props) => {
         )}
       </Slider>
 
-      <div className="absolute top-0 flex justify-between w-full h-full sm:hidden">
+      {/* <div className="absolute top-0 flex justify-between w-full h-full sm:hidden">
         <div className="w-4 h-full bg-white"></div>
         <div className="w-4 h-full bg-white"></div>
-      </div>
+      </div> */}
     </div>
   );
 };

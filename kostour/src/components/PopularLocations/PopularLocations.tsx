@@ -10,7 +10,6 @@ const dummyCities = [
 
 const PopularLocations = () => {
   const { data, isLoading } = useLocations();
-  console.log({ data });
 
   if (isLoading) return <h2>Loading data...</h2>;
 
