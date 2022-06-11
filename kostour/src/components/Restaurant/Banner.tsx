@@ -1,21 +1,36 @@
+import Image from 'next/image'
+import restaurantimg from '../../assets/images/restaurant-banner.png'
+
 const Banner = () => {
  return(
-    <div className="text-white bottom-0 left-0 z-10 px-5 py-5 lg:px-[40px] lg:py-[26px]">
-      <h2 className="font-medium text-5xl leading-[60px] mt-[13px]">
-         Name
-      </h2>
-
-      <ul className="md:flex">
-         <li className="mr-[80px] text-sm">
+<div className="container">
+   <div className="container z-0 mt-[50px] ml-[100px] center">
+   <Image
+            src={restaurantimg}
+            width="1230px"
+            height="500px"
+           
+            alt="card"
+            loading="lazy"
+            className="rounded-lg"
+            />
+   </div> 
+   <div
+      className="text-white z-2 absolute md:max-w-[610] lg:max-w-[920px] xl:max-w-[1230px] mt-[-50px] mx-[150px] sm:px-0"
+   >
+      <ul className="md:flex font-bold mt-[-80px] mb-[10px] font-large w-[500px]">Name of Restaurant</ul>
+      <ul className="md:flex font-bold">
+         <li className="mr-[80px] text-lg">
             <span className="font-light mr-2">Location:</span>
-            <span className="font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus officia error, nihil in beatae itaque iure illo unde et sint, explicabo deleniti officiis tempora nobis sunt distinctio ab voluptate vel.</span>
+            <span className="font-medium"> Name</span>
          </li>
-         <li className="mr-[80px] text-sm">
+         <li className="mr-[80px] text-lg">
             <span className="font-light mr-2">Open Hours:</span>
             <span className="font-medium"> 08:00 - 20:00</span>
          </li>
       </ul>
    </div>
+</div>
  );
 };
 
