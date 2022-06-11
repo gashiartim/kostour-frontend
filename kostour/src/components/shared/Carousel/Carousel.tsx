@@ -57,7 +57,11 @@ export const Carousel = (props: Props) => {
   };
 
   return (
-    <div className="">
+    <div
+      className={cs({
+        ["relative w-full mt-0 lg:-mt-32 xl:-mt-36 bg-black mb-52"]: true,
+      })}
+    >
       <Slider
         className={cs(styles.BigCarousel, className)}
         lazyLoad="progressive"

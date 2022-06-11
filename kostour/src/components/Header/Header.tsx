@@ -22,7 +22,7 @@ const Header = ({ className }: Props) => {
   return (
     <div
       className={cs(
-        "container relative z-10 flex flex-col p-5 mx-auto md:p-[20px] bg-gradient-to-b from-black"
+        "w-auto relative z-10 flex flex-col p-5 mx-auto md:p-[20px] bg-gradient-to-b from-black"
       )}
     >
       <div className="flex flex-row items-center justify-between">
