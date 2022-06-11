@@ -24,7 +24,7 @@ const PopularLocations = () => {
           data?.data?.map((location: any, idx: number) => {
             // console.log({ lodation });
 
-            return <CityCard key={idx} {...location} />;
+            return <CityCard key={idx} {...location} href={"locations"} />;
           })}
         {/* <CityCard /> */}
         {/* <CityCard />

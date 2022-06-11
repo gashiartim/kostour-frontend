@@ -8,9 +8,10 @@ type Props = {
   description?: string;
   whatCanYouDo?: string;
   thumbnail?: any;
+  href?: string;
 };
 
-const CityCard = ({ name, thumbnail, id }: Props) => {
+const CityCard = ({ name, thumbnail, id, href }: Props) => {
   return (
     // <div className="rounded-[6px] relative">
     //   <Image
@@ -30,7 +31,7 @@ const CityCard = ({ name, thumbnail, id }: Props) => {
     //   </div>
     // </div>
     <div className="relative w-[298px] h-[298px] rounded-[6px] overflow-hidden">
-      <Link href={`../locations/${id}`}>
+      <Link href={`../${href}/${id}`}>
         {thumbnail ? (
           <Image
             src={"http://localhost:3000/" + thumbnail?.media?.url}

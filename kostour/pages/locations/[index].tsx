@@ -24,7 +24,7 @@ const Location = () => {
           id={data?.id}
           whatCanYouDo={data?.whatCanYouDo}
         />
-        <Gallery />
+        <Gallery href="restaurant" />
         <Footer />
       </div>
     </>

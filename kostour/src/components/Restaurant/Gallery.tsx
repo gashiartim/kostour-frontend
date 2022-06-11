@@ -1,16 +1,14 @@
 import { useLocations } from "../../lib/hooks/queries/useLocations";
 import CityCard from "../shared/CityCard/CityCard";
 import Image from "next/image";
+import { useRestaurants } from "../../lib/hooks/queries/useRestaurants";
+import city from "../../assets/images/Rugove.jpeg";
 
-// const dummyCities = [
-//   { name: "Rugove", image: "src" },
-//   { name: "Prizren", image: "src" },
-//   { name: "Prishtine", image: "src" },
-//   { name: "Brezovica", image: "src" },
-// ];
-
-const Gallery = () => {
-  const { data, isLoading } = useLocations();
+interface Props {
+  href: string;
+}
+const Gallery = ({ href }: Props) => {
+  const { data, isLoading } = useRestaurants();
 
   if (isLoading) return <h2>Loading data...</h2>;
 
@@ -23,7 +21,18 @@ const Gallery = () => {
       <div className="grid justify-center gap-3 mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:w-max">
         {!isLoading &&
           data?.data?.map((location: any, idx: number) => {
-            return <CityCard key={idx} {...location} />;
+            return (
+              <Image
+                src={city}
+                width="298px"
+                height="298px"
+                objectFit="cover"
+                className="rounded-[6px] "
+                alt="card"
+                loading="lazy"
+                placeholder="blur"
+              />
+            );
           })}
       </div>
 
@@ -34,21 +43,8 @@ const Gallery = () => {
         <div className="grid justify-center gap-3 mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:w-max">
           {!isLoading &&
             data?.data?.map((location: any, idx: number) => {
-              return <CityCard key={idx} {...location} />;
+              return <CityCard key={idx} {...location} href={href} />;
             })}
-          <CityCard />
-          <CityCard />
-          <CityCard />
-          <CityCard />
-          {/* <Image
-          src={""}
-          width="298px"
-          height="298px"
-          objectFit="cover"
-          className="rounded-[6px] "
-          alt="card"
-          loading="lazy"
-        /> */}
         </div>
       </div>
     </div>
