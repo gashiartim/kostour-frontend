@@ -1,5 +1,8 @@
 import city from "../../assets/images/City.png";
+import { useCategories } from "../../lib/hooks/queries/useCategories";
 const SearchByActivities = () => {
+  const { data } = useCategories();
+  console.log(data);
   return (
     <div
       className=" w-max mx-auto mb-16 lg:mb-[450px] md:mb-[420px] xl:mb-56"

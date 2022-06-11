@@ -9,7 +9,7 @@ type Props = {
 };
 
 const CityCard = ({ name, thumbnail }: Props) => {
-  console.log({ thumbnail });
+  console.log({ thumbnail }), "sss";
 
   return (
     // <div className="rounded-[6px] relative">
