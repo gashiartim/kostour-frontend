@@ -25,7 +25,7 @@ const Details = (props: Props) => {
         <h2 className="text-[26px] font-bold mb-[19px]">Why {name}?</h2>
         <p className="text-[18px] mb-[75px]">{whatCanYouDo}</p>
 
-        <h2 className="text-[26px] font-bold mb-[19px]">About this place</h2>
+        <h2 className="text-[26px]  font-bold mb-[19px]">About this place</h2>
         <p className="text-[18px]">{description}</p>
       </div>
     </>
