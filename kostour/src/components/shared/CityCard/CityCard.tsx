@@ -3,33 +3,17 @@ import Link from "next/link";
 import city from "../../../assets/images/Rugove.jpeg";
 
 type Props = {
-  id?: any;
+  id: string;
   name?: string;
   description?: string;
   whatCanYouDo?: string;
   thumbnail?: any;
-  href?: string;
+  href: string;
+  numberOfVisits: number;
 };
 
 const CityCard = ({ name, thumbnail, id, href }: Props) => {
   return (
-    // <div className="rounded-[6px] relative">
-    //   <Image
-    //     src={city}
-    //     width="298px"
-    //     height="298px"
-    //     objectFit="cover"
-    //     className="rounded-[6px] absolute"
-    //     alt="card"
-    //     loading="lazy"
-    //     placeholder="blur"
-    //   />
-    //   <div className="absolute t-0">
-    //     <div className="text-white ">
-    //       ehenderit voluptate. Ea nisi culpa magna...
-    //     </div>
-    //   </div>
-    // </div>
     <div className="relative w-[298px] h-[298px] rounded-[6px] overflow-hidden">
       <Link href={`../${href}/${id}`}>
         {thumbnail ? (

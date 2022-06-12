@@ -9,7 +9,8 @@ import Gallery from "../../src/components/Restaurant/Gallery";
 
 const Location = () => {
   const { query } = useRouter();
-  const locationId = query.index as string;
+  const locationId = query.id as string;
+
   const { data } = useLocation(locationId || "");
 
   return (
