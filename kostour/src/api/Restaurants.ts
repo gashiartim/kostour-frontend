@@ -1,4 +1,3 @@
-
 import { apiRequest } from "./Api";
 
 export interface RestaurantsResponse{
@@ -26,10 +25,17 @@ export interface RestaurantItems{
     images: []
 }
 
-export const allRestaurants = async () => {
+export interface RestaurantParams{
+  locationId?:string,
+  categoryId?:string
+}
+export const allRestaurants = async (params?:RestaurantParams) => {
     return await apiRequest<null, RestaurantsResponse>(
       "get",
-      `restaurants`
+      `restaurants`,
+      undefined,
+      undefined,
+      params
     );
   };
 

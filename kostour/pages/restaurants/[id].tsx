@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 const Restaurant = () => {
   const { query } = useRouter();
-  const restaurantId = query.index as string;
+  const restaurantId = query.id as string;
   const { data } = useRestaurant(restaurantId || "");
   return (
     <div className="bg-black">

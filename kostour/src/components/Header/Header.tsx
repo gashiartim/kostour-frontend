@@ -11,7 +11,7 @@ interface Props {
 
 const navItems = [
   { title: "home", link: "/" },
-  { title: "activities", link: "/activities" },
+  { title: "restaurants", link: "/restaurants" },
   { title: "locations", link: "/locations" },
   { title: "tours", link: "/tours" },
   { title: "about", link: "/about" },
