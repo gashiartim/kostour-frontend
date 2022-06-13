@@ -1,16 +1,8 @@
 import { useLocations } from "../../lib/hooks/queries/useLocations";
 import CityCard from "../shared/CityCard/CityCard";
 
-const dummyCities = [
-  { name: "Rugove", image: "src" },
-  { name: "Prizren", image: "src" },
-  { name: "Prishtine", image: "src" },
-  { name: "Brezovica", image: "src" },
-];
-
 const PopularLocations = () => {
   const { data, isLoading } = useLocations();
-  console.log({ data });
 
   if (isLoading) return <h2>Loading data...</h2>;
 
@@ -25,7 +17,7 @@ const PopularLocations = () => {
           data?.data?.map((location: any, idx: number) => {
             // console.log({ lodation });
 
-            return <CityCard key={idx} {...location} />;
+            return <CityCard key={idx} {...location} href={"locations"} />;
           })}
         {/* <CityCard /> */}
         {/* <CityCard />

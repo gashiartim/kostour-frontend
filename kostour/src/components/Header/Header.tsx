@@ -5,18 +5,26 @@ import Link from "next/link";
 import { UserDropdown } from "../Dropdown/UserDropdown";
 import SwitchMode from "../SwitchMode/SwitchMode";
 
+interface Props {
+  className?: string;
+}
+
 const navItems = [
   { title: "home", link: "/" },
-  { title: "activities", link: "/activities" },
+  { title: "restaurants", link: "/restaurants" },
   { title: "locations", link: "/locations" },
   { title: "tours", link: "/tours" },
   { title: "about", link: "/about" },
 ];
 
-const Header = () => {
+const Header = ({ className }: Props) => {
   const { pathname } = useRouter();
   return (
-    <div className="container relative z-10 flex flex-col p-5 mx-auto  md:p-[20px]">
+    <div
+      className={cs(
+        "w-auto relative z-10 flex flex-col p-5 mx-auto md:p-[20px] bg-gradient-to-b from-black"
+      )}
+    >
       <div className="flex flex-row items-center justify-between">
         <SwitchMode />
 

@@ -34,7 +34,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
       const userStorageDetails = await localforage.getItem<string>(
         LOCAL_STORAGE_KEY
       );
-      console.log(userStorageDetails);
+
       // axios.defaults.headers.common.Authorization = `Bearer ${userStorageDetails}`;
       if (!userStorageDetails || checkTokenExpiration(userStorageDetails)) {
         setLoading(false);

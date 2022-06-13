@@ -8,10 +8,10 @@ import SandwichMenu from "../src/components/shared/SandwichMenu/SandwichMenu";
 import { useWindowWidth } from "../src/lib/hooks/useWindowWidth";
 
 const Home = () => {
-  const { toggleHeader } = useWindowWidth();
+  const { mobile } = useWindowWidth();
   return (
     <div className="bg-black">
-      {toggleHeader ? <SandwichMenu /> : <Header />}
+      {mobile ? <SandwichMenu /> : <Header />}
       <Banner />
       <PopulatLocations />
       <SearchByActivities />

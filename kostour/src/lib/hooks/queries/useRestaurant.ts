@@ -1,14 +1,13 @@
-
 import { useQuery, UseQueryOptions } from "react-query";
 import { toast } from "react-toastify";
-import { allLocations } from "../../../api/Locations";
+import { getResturant } from "../../../api/Restaurants";
 
 
-export const useLocations = (
-  params?:{categoryId:string},
+export const useRestaurant = (
+  id:string,
   options?: UseQueryOptions<any, any>
 ) => {
-  return useQuery<any, any>(["locations",params], () => allLocations(params), {
+  return useQuery<any, any>(["restaurant"], () => getResturant(id), {
     onError: (e) => {
       if (e.response) toast.error(e.response.data.error);
     },
