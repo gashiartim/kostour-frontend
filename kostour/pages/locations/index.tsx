@@ -45,7 +45,7 @@ const Locations = () => {
         placeholder={"Select category"}
         onChange={handleCategoryChange}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 gap-y-8 mx-[40px] my-[60px] place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  mx-auto my-[60px] place-items-center gap-3 w-max">
         {locations?.data.map((item: LocationsResponse) => {
           return (
             <CityCard

@@ -19,6 +19,7 @@ interface Props extends Settings {
   data?: Array<{ img: string; id: string }>;
   showArrows?: boolean;
   banner?: boolean;
+  className?: string;
 }
 
 export const Carousel = (props: Props) => {

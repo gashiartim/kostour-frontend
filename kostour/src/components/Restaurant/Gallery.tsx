@@ -23,6 +23,7 @@ const Gallery = ({ href }: Props) => {
           data?.data?.map((location: any, idx: number) => {
             return (
               <Image
+                key={idx}
                 src={city}
                 width="298px"
                 height="298px"

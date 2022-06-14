@@ -22,7 +22,7 @@ const Restaurant = () => {
         whatCanYouDo={data?.whatCanYouDo}
         open_hours={data?.open_hours}
       />
-      <Gallery href="restaurant" />
+      <Gallery href="restaurants" />
       <Footer />
     </div>
   );

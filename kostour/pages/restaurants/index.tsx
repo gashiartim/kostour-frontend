@@ -56,7 +56,7 @@ const Restaurants = () => {
   return (
     <div className="bg-black">
       <Header />
-      <div className="flex justify-end flex-col md:flex-row items-center gap-2 mt-5">
+      <div className="flex flex-col items-center justify-end gap-2 mt-5 md:flex-row">
         <Select
           selectClassName="w-[250px] mr-12 bg-black-300"
           menuClassName="w-[250px]"
@@ -75,7 +75,7 @@ const Restaurants = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 gap-y-8 mx-[40px] my-[60px] place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  my-[60px] place-items-center w-max mx-auto gap-3">
         {restaurants?.data.map((item: LocationsResponse) => {
           return (
             <CityCard
