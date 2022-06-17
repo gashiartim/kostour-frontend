@@ -27,7 +27,7 @@ const SandwichMenu = () => {
     setLockedBody(!locked);
   };
   return (
-    <Disclosure as="nav" className="bg-black z-55">
+    <Disclosure as="nav" className="bg-black !z-[100]">
       {({ open }) => (
         <>
           <div
@@ -36,7 +36,7 @@ const SandwichMenu = () => {
               open ? "bg-black" : "bg-black"
             )}
           >
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex items-center justify-between ">
               <div className="inset-y-0 left-0 flex items-center justify-between w-full py-5 px-7 ">
                 {/* Mobile menu button*/}
                 <Icon icon="KOS-TOUR" className="text-white " />

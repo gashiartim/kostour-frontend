@@ -1,5 +1,5 @@
-@tailwind base; 
-@tailwind components; 
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 @import "tailwindcss/base";
@@ -38,4 +38,32 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+@layer components {
+  .link {
+    @apply text-blue-500 underline hover:cursor-pointer hover:text-blue-600;
+  }
+  .btn-primary {
+    @apply bg-blue-600 w-max text-sm flex items-center justify-center py-2.5 px-4 font-medium rounded-md text-white  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white w-max text-sm flex items-center justify-center py-2.5 px-4 font-medium rounded-md text-blue-600  hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed border-[2px] border-blue-600;
+  }
+
+  .btn-success {
+    @apply bg-green-600 w-max text-sm flex items-center justify-center py-2.5 px-4 font-medium rounded-md text-white  hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed;
+  }
+
+  .default-transition {
+    @apply transition-all duration-75 ease-in-out;
+  }
+
+  .card-hover {
+    @apply opacity-90 default-transition cursor-pointer;
+  }
+
+  .container {
+    @apply w-full max-w-[1330px] h-screen mx-auto;
+  }
 }

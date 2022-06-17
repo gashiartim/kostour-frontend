@@ -14,11 +14,11 @@ type Props = {
 
 const CityCard = ({ name, thumbnail, id, href }: Props) => {
   return (
-    <div className="relative w-[298px] h-[298px] rounded-[6px] overflow-hidden">
+    <div className="relative w-[298px] h-[298px] rounded-[6px] overflow-hidden hover:!card-hover">
       <Link href={`../${href}/${id}`}>
         {thumbnail ? (
           <Image
-            src={"http://localhost:3000/" + thumbnail?.media?.url}
+            src={process.env.PHOTO_API_URL + "" + thumbnail?.media?.url}
             width="298px"
             height="298px"
             objectFit="cover"

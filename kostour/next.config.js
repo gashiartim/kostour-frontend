@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 
 module.exports = {
   reactStrictMode: true,
@@ -35,9 +35,10 @@ module.exports = {
     ],
   },
   env: {
+    API: "http://localhost:3000/api",
+    PHOTO_API_URL: "http://localhost:3000/",
     // NEXTAUTH_URL: "http://localhost:3000",
     // NEXT_APP_URL: "https://culture.k-clients.com/",
-    // API: "https://api.culture.k-clients.com/api",
     // LOCAL_API: "http://192.168.0.111:3014/api",
     // FACEBOOK_ID: "175784944725121",
     // FACEBOOK_SECRET: "b948952d434f519a4b4aa08f3085482d",

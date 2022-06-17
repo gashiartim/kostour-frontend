@@ -18,7 +18,15 @@ const Location = () => {
       <div className="bg-black ">
         <Header className="relative z-10" />
 
-        <Carousel showArrows={false} banner className="w-[100%]" />
+        <Carousel
+          data={[
+            data?.thumbnail?.media?.url,
+            ...(data?.images?.map((img: any) => img?.media?.url) || []),
+          ]}
+          showArrows={false}
+          banner
+          className="w-[100%]"
+        />
         <Details
           name={data?.name}
           description={data?.description}
@@ -26,7 +34,6 @@ const Location = () => {
           whatCanYouDo={data?.whatCanYouDo}
         />
         <Gallery href="restaurants" />
-        <Footer />
       </div>
     </>
   );

@@ -7,37 +7,18 @@ import Image from "next/image";
 
 const Content = () => {
   return (
-    <div className="container mt-[112px] text-gray-500 w-full lg:px-[185px]">
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-around gap-9 ">
-        <div>
-          <h1 className="text-3xl text-white pb-[20px] font-bold text-center md:text-left">
-            What we do
-          </h1>
-          <p>
-            So, we took the initiative to bring KosTour, a website that brings
-            you some of Kosovo's many beautiful places.{" "}
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl text-white pb-[20px] font-bold text-center md:text-left">
-            How it works
-          </h1>
-          <p>
-            With this, we invite you to come and visit and experience the beauty
-            and magic of mountain places through hiking and skiing adventures.
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl text-white pb-[20px] font-bold text-center md:text-left">
-            Our message
-          </h1>
-          <p>
-            Do not leave without exploring the art, culture and nightlife of
-            Kosovo. KosTour is here for gyou, to make your next travel
-            destination easier.
-          </p>
-        </div>
+    <div className="mt-[112px] text-gray-500 w-full">
+      <div className="flex flex-col lg:flex-row lg:justify-between">
+        {contents.map((content) => (
+          <div key={content.id} className="p-5 mb-10 lg:mb-0 lg:p-0">
+            <h1 className="text-3xl text-white pb-[20px] font-bold text-center lg:text-left">
+              {content.title}
+            </h1>
+            <p className="max-w-[350px]">{content.content}</p>
+          </div>
+        ))}
       </div>
+
       <h1 className="text-center text-5xl mt-[200px] mb-[75px] font-bold text-white">
         Why should I visit Kosovo ?
       </h1>
@@ -112,4 +93,26 @@ const Content = () => {
     </div>
   );
 };
+
+const contents = [
+  {
+    id: 0,
+    title: "What we do",
+    content:
+      "So, we took the initiative to bring KosTour, a website that brings you some of Kosovo's many beautiful places.",
+  },
+  {
+    id: 1,
+    title: "How it works",
+    content:
+      "With this, we invite you to come and visit and experience the beauty and magic of mountain places through hiking and skiing adventures.",
+  },
+  {
+    id: 2,
+    title: "Our message",
+    content:
+      "Do not leave without exploring the art, culture and nightlife of Kosovo. KosTour is here for gyou, to make your next travel destination easier.",
+  },
+];
+
 export default Content;

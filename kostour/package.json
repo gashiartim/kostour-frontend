@@ -10,6 +10,7 @@
     "generate:icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
     "@headlessui/react": "^1.6.0",
     "@hookform/resolvers": "^2.8.10",
     "axios": "^0.27.2",

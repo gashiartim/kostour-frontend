@@ -25,6 +25,7 @@ interface Props extends Settings {
 export const Carousel = (props: Props) => {
   const { showArrows = false, className, banner = false, ...rest } = props;
   let sliderRef: null | undefined | any = useRef();
+  console.log("props", props);
 
   const settings = {
     // centerMode: true,
@@ -60,7 +61,8 @@ export const Carousel = (props: Props) => {
   return (
     <div
       className={cs({
-        ["relative w-full mt-0 lg:-mt-32 xl:-mt-36 bg-black mb-52"]: true,
+        ["absolute inset-0 w-full mt-0 lg:-mt-32 xl:-mt-36 bg-black mb-52"]:
+          true,
       })}
     >
       <Slider
@@ -69,6 +71,23 @@ export const Carousel = (props: Props) => {
         ref={(c: any) => (sliderRef.current = c)}
         {...settings}
       >
+        {props.data?.map((image: any, idx: number) => {
+          return (
+            <div key={idx} className="w-screen h-[290px] md:h-[805px]">
+              <Image
+                className="h-[290px] md:h-[805px] w-[100%]"
+                objectFit="cover"
+                layout="fill"
+                src={process.env.PHOTO_API_URL + "" + image}
+                alt="Carousel"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={process.env.PHOTO_API_URL + "" + image}
+              />
+            </div>
+          );
+        })}
+
         {(!props.data || props.data.length === 0) && (
           <div className="w-screen h-[290px] md:h-[805px]">
             <Image
@@ -86,10 +105,10 @@ export const Carousel = (props: Props) => {
         )}
       </Slider>
 
-      {/* <div className="absolute top-0 flex justify-between w-full h-full sm:hidden">
+      <div className="absolute top-0 flex justify-between w-full h-full sm:hidden">
         <div className="w-4 h-full bg-white"></div>
         <div className="w-4 h-full bg-white"></div>
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -33,17 +33,18 @@ const dummyQuestions = [
 
 const FAQ = () => {
   return (
-    <div className="w-full lg:mx-auto  xl:mb-[254px] lg:mb-20">
-      <h2 className="lg:md:text-3xl text-xl font-bold  text-center mb-[41px] text-white">
+    <div className="w-full  lg:mx-auto  xl:mb-[254px] lg:mb-20 lg:mt-[218px]">
+      <h2 className="lg:md:text-3xl text-xl font-bold  text-center mb-[41px] dark:text-white">
         Ferquently Asked Questions
       </h2>
       <div>
-        {dummyQuestions.map((questions: any) => (
+        {dummyQuestions.map((questions: any, idx: number) => (
           <Questions
             key={questions.id}
             id={questions.id}
             title={questions.title}
             answer={questions.answer}
+            showBorder={idx < dummyQuestions.length - 1}
           />
         ))}
       </div>

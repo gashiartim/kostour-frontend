@@ -5,6 +5,10 @@ import { AuthContextProvider } from "../src/lib/context/AuthContext/AuthContextP
 import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/globals.css";
+import Container from "../src/components/shared/Container/Container";
+import Header from "../src/components/Header/Header";
+import Layout from "../src/components/shared/Layout/Layout";
+import Head from "next/head";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,8 +23,13 @@ const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
+      <Head>
+        <title>KosTour</title>
+      </Head>
       <AuthContextProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </AuthContextProvider>
     </QueryClientProvider>
   );

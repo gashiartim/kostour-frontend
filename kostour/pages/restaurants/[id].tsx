@@ -5,13 +5,14 @@ import Footer from "../../src/components/Footer/Footer";
 import { Carousel } from "../../src/components/shared/Carousel/Carousel";
 import { useRestaurant } from "../../src/lib/hooks/queries/useRestaurant";
 import { useRouter } from "next/router";
+import Container from "../../src/components/shared/Container/Container";
 
 const Restaurant = () => {
   const { query } = useRouter();
   const restaurantId = query.id as string;
   const { data } = useRestaurant(restaurantId || "");
   return (
-    <div className="bg-black">
+    <Container>
       <Header />
       <Carousel showArrows={false} banner className="w-[100%]" />
 
@@ -23,8 +24,7 @@ const Restaurant = () => {
         open_hours={data?.open_hours}
       />
       <Gallery href="restaurants" />
-      <Footer />
-    </div>
+    </Container>
   );
 };
 
