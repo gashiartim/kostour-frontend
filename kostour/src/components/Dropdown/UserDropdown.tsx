@@ -23,6 +23,11 @@ export function UserDropdown(props: IUserDropdownProps) {
   const options = authCtx.isAuthenticated
     ? [
         {
+          id: "3",
+          name: "Dashboard",
+          onClick: () => router.push("/dashboard"),
+        },
+        {
           id: "4",
           name: authCtx.isAuthenticated ? "Log out" : "Log in",
           onClick: authCtx.isAuthenticated
@@ -45,10 +50,13 @@ export function UserDropdown(props: IUserDropdownProps) {
     >
       <Menu.Button>
         <div className="flex items-center px-3.5 py-2.5  border-opacity-40 rounded-2.5  opacity-50">
+          <Icon
+            icon="user"
+            className="!text-[#3F86F0] bg-[#3F86F0] rounded-full !fill-white -mt-1"
+          />
           {authCtx.user?.first_name && authCtx.user?.first_name !== null && (
             <div className="mx-2 text-white">{`${authCtx.user?.first_name} ${authCtx.user?.last_name}`}</div>
           )}
-          <Icon icon="user" className="text-[#3F86F0] fill-white" />
           <span className="ml-2">
             <Icon icon="arrow" className="text-[#3F86F0]" />
           </span>

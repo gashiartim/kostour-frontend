@@ -1,10 +1,11 @@
+import { IDefaultResponse } from "../lib/interfaces";
 import { apiRequest } from "./Api";
 
 export interface RestaurantsResponse {
-  data: RestaurantItems[];
+  // data: RestaurantItems[];
 }
 
-export interface RestaurantItems {
+export interface IRestaurant {
   id: string;
   name: string;
   description: string;
@@ -22,20 +23,22 @@ export interface RestaurantItems {
     updated_at: string;
   };
   thumbnail: any;
-  images: [];
+  images: any[];
 }
 
 export interface RestaurantParams {
   locationId?: string;
   categoryId?: string;
+  created_by?: string;
 }
 export const allRestaurants = async (params?: RestaurantParams) => {
-  return await apiRequest<null, RestaurantsResponse>(
+  return await apiRequest<null, IDefaultResponse<IRestaurant[]>>(
     "get",
     `restaurants`,
     undefined,
     undefined,
     {
+      ...params,
       location_id: params?.locationId,
       category_id: params?.categoryId,
     }

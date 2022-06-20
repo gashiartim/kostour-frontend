@@ -1,87 +1,93 @@
-import { Fragment, useState } from "react";
+import React, { ChangeEvent, Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { Icon } from "../Icon/Icon";
+import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import cs from "classnames";
-import { Noop } from "react-hook-form";
+import { SelectHTMLAttributes } from "react";
+// import { ClearDataButton } from "../ClearDataButton/ClearDataButton";
 
-export interface Option<T = any> {
-  file?: { media: { url: string } };
+export interface Option {
+  id: number | string;
   name: string;
-  id: string;
-  options: T;
-  event_title?: string;
-}
-export interface SelectProps {
-  data?: Array<Option> | undefined | Array<any>;
-  selected?: Option | any;
-  onChange: (option: Option) => void;
-  placeholder?: string;
-  error?: string;
-  className?: string;
-  menuClassName?: string;
-  preClassName?: string;
-  wrapperClassName?: string;
-  selectClassName?: string;
-  onBlur?: Noop;
-  clearState?: any;
+  unavailable?: boolean;
 }
 
-export default function Select(props: SelectProps) {
+interface Props {
+  name: string;
+  error?: string | any;
+  label: string;
+  className?: string;
+  valueClassName?: string;
+  options: Array<Option>;
+  value: Option | undefined;
+  onChange: (event: any, name: string) => void;
+  inputRef?: any;
+  onClear?: (fieldName: string) => void;
+  isDirty?: boolean;
+  buttonClassName?: string;
+  isLoading?: boolean;
+  selectedOptions?: any[];
+}
+
+export const Select = ({
+  name,
+  label,
+  error,
+  className,
+  onChange,
+  value,
+  options,
+  inputRef,
+  onClear,
+  isDirty = false,
+  buttonClassName,
+  isLoading = false,
+  selectedOptions,
+  valueClassName,
+}: Props) => {
+  function handleChange(e: any) {
+    onChange(e, name);
+  }
+
   return (
-    <div className={cs("", props.className)} onBlur={props.onBlur}>
-      <Listbox value={props.selected} onChange={props.onChange}>
-        <div className={cs("relative", props.wrapperClassName)}>
+    <div className={cs(" relative ", className)}>
+      {/* <label
+        htmlFor={name}
+        className="block mb-1 mr-auto text-sm font-semibold w-max"
+      >
+        {label}
+      </label> */}
+
+      <label htmlFor={name} className={`text-sm font-medium mb-2`}>
+        {label}
+      </label>
+      <Listbox value={value} onChange={handleChange} refName={inputRef}>
+        <div className="relative">
           <Listbox.Button
             className={cs(
-              "relative w-[250px] py-2.5  flex items-center pl-2 !text-sm text-left bg-[#22272E] border-1 border-gray-700  cursor-default  rounded-2  focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2  sm:text-sm justify-between",
-              props.selectClassName
+              "bg-white leading-4 relative block w-full px-4 py-3.5 border-[#10356D] border-1 placeholder-gray text-xs  text-black rounded focus:outline-none focus:border-[#10356D] ",
+              buttonClassName
             )}
-            placeholder="Select category"
           >
             <span
               className={cs(
-                "block text-white !text-sm truncate hover:cursor-pointer",
-                {
-                  "text-white": !props.selected?.name,
-                }
+                "block text-left truncate dark:text-black ",
+                valueClassName
               )}
             >
-              {props.selected?.name ? props.selected?.name : props.placeholder}
-            </span>
-            {props.selected?.name ? (
-              props.clearState ? (
-                <>
-                  <span
-                    onClick={() =>
-                      props.clearState && props.clearState("category")
-                    }
-                    className=" inset-y-0 ml-1 !right-3 mr-[10px] p-[2px] top-3  cursor-pointer hover:bg-gray-200 rounded-full  flex items-center justify-center !z-0"
-                  >
-                    {/* <Icon
-                      icon="close"
-                      className="text-gray-400 my-icon"
-                      aria-hidden="true"
-                    /> */}
-                  </span>
-                </>
+              {value?.name && isDirty ? (
+                value.name
+              ) : !isDirty ? (
+                value?.name || <span className="text-opacity-40">{label}</span>
               ) : (
-                <span className="inset-y-0 right-0 flex items-center pr-2 ml-1 pointer-events-none ">
-                  <Icon
-                    icon="arrow"
-                    className="w-5 h-2 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </span>
-              )
-            ) : (
-              <span className="inset-y-0 right-0 flex items-center pr-2 ml-1 pointer-events-none ">
-                <Icon
-                  icon="arrow"
-                  className="w-5 h-2 text-gray-400"
-                  aria-hidden="true"
-                />
-              </span>
-            )}
+                <span className="text-opacity-40">{label}</span>
+              )}
+            </span>
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <SelectorIcon
+                className="w-5 h-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
           </Listbox.Button>
           <Transition
             as={Fragment}
@@ -89,54 +95,59 @@ export default function Select(props: SelectProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options
-              className={cs(
-                "absolute w-full   py-1 mt-1 overflow-auto text-sm bg-[#22272E] rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none !z-20 scrollbar",
-                props.menuClassName
-              )}
-            >
-              {props.data?.map((person, personIdx) => (
-                <Listbox.Option
-                  key={personIdx}
-                  className={({ active, selected }) =>
-                    cs(
-                      "cursor-default select-none relative py-2 pl-2 text-white pr-4",
-                      { "text-darkBlue ": active },
-                      {
-                        "bg-dropDown": selected,
-                      }
-                    )
-                  }
-                  value={person}
-                >
-                  {({ selected }) => (
-                    <>
-                      <span
-                        className={`${
-                          selected ? "font-medium " : "font-normal"
-                        } block truncate`}
-                      >
-                        {person.name}
-                      </span>
-                    </>
-                  )}
-                </Listbox.Option>
-              ))}
+            <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {!isLoading &&
+                Boolean(options.length) &&
+                options?.map((person, personIdx) => (
+                  <Listbox.Option
+                    key={personIdx}
+                    className={({ active }) =>
+                      `${active ? "bg-zinc-600 text-white " : "text-gray-900"}
+                          cursor-default select-none relative py-2 pl-10 pr-4`
+                    }
+                    value={person}
+                  >
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`${
+                            selected || selectedOptions?.includes(person.id)
+                              ? "font-medium"
+                              : "font-normal"
+                          } block truncate`}
+                        >
+                          {person.name}
+                        </span>
+                        {selected || selectedOptions?.includes(person.id) ? (
+                          <span
+                            className={`${
+                              active ? "text-white" : "text-blue-600"
+                            }
+                                absolute inset-y-0 left-0 flex items-center pl-3`}
+                          >
+                            <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Listbox.Option>
+                ))}
             </Listbox.Options>
           </Transition>
+          {/* {value && onClear && (
+            <ClearDataButton
+              className="absolute -mt-1 lg:-mt-[3px] top-2 -right-10 w-max -mr-[1px] lg:-mr-[6px] rounded-full max-h-7 lg:max-h-10"
+              onClick={() => onClear(name)}
+              showText={false}
+            />
+          )} */}
         </div>
       </Listbox>
-
-      {props.error && (
-        <pre
-          className={cs(
-            "h-2 m-0 ml-2 mt-0.5 text-xs font-sans text-red-500",
-            props.preClassName
-          )}
-        >
-          {props.error}
+      {error && (
+        <pre className="absolute left-0 mr-auto font-sans text-xs text-red-600 -bottom-4 w-max">
+          {error?.message || error}
         </pre>
       )}
     </div>
   );
-}
+};

@@ -4,8 +4,8 @@ import LoginForm from "../../src/components/LoginForm/LoginForm";
 
 const Login = () => {
   return (
-    <div className="flex justify-center  bg-[#EAF1FB]  md:grid md:grid-cols-2">
-      <div className="absolute z-50 mx-2.5 md:relative md:mx-auto mt-[153px]">
+    <div className="flex justify-center  light:bg-[#EAF1FB]  md:grid md:grid-cols-2">
+      <div className="z-20 mx-2.5 md:relative md:mx-auto mt-[153px]">
         <LoginForm />
       </div>
       <div>

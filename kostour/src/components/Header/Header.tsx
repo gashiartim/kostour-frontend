@@ -4,6 +4,7 @@ import { Icon } from "../shared/Icon/Icon";
 import Link from "next/link";
 import { UserDropdown } from "../Dropdown/UserDropdown";
 import SwitchMode from "../SwitchMode/SwitchMode";
+import { useAuthContext } from "../../lib/context/AuthContext/AuthContext";
 
 interface Props {
   className?: string;
@@ -19,6 +20,9 @@ const navItems = [
 
 const Header = ({ className }: Props) => {
   const { pathname } = useRouter();
+  const { user } = useAuthContext();
+  console.log({ user });
+
   return (
     <div className={cs("px-4 xl:px-0")}>
       <div className="relative w-auto z-20 flex flex-col py-5 mx-auto md:py-[20px]">
@@ -39,7 +43,7 @@ const Header = ({ className }: Props) => {
 
           <div className="font-bold ">
             <ul className="hidden sm:flex">
-              {navItems.map((item) => (
+              {navItems.map((item, idx) => (
                 <li
                   key={item.title}
                   className={cs(
@@ -47,6 +51,7 @@ const Header = ({ className }: Props) => {
                     {
                       "text-primary decoration-sky-500/30":
                         pathname === item.link,
+                      "mr-0": idx >= navItems.length - 1,
                     }
                   )}
                 >

@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
   return (
     <Container>
       {!mobile ? <Header /> : <SandwichMenu />}
-      {children}
+      <div className="min-h-[60vh]">{children}</div>
       <Footer />
     </Container>
   );

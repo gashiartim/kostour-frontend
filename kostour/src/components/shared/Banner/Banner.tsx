@@ -1,9 +1,25 @@
 import Image from "next/image";
 import banner from "../../../assets/images/landing-page2.png";
 import cs from "classnames";
-import router from "next/router";
+import router, { useRouter } from "next/router";
+import { useState } from "react";
 
 const Banner = () => {
+  const router = useRouter();
+
+  const [searchInput, setSearchInput] = useState<string | undefined>();
+
+  function handleChange(e: any) {
+    setSearchInput(e.target.value);
+  }
+
+  function onClickHandler() {
+    router.push({
+      pathname: "locations",
+      query: { ...router.query, name: searchInput },
+    });
+  }
+
   return (
     <div
       className={
@@ -24,8 +40,13 @@ const Banner = () => {
             className="ml-2 text-white bg-transparent rounded-full focus:outline-none md:pl-6 placeholder-shown:truncate"
             type="text"
             placeholder="Search your favourite location..."
+            value={searchInput}
+            onChange={handleChange}
           />
-          <button className="relative px-5 py-2 transition-all duration-75 ease-in-out bg-blue-500 rounded-full bg-blue hover:text-sm h-[40px] text-md md:px-7 min-w-[120px] w-[120px]">
+          <button
+            className="relative px-5 py-2 transition-all duration-75 ease-in-out bg-blue-500 rounded-full bg-blue hover:text-sm h-[40px] text-md md:px-7 min-w-[120px] w-[120px]"
+            onClick={onClickHandler}
+          >
             <p className="sm:visible">Search</p>
           </button>
         </div>

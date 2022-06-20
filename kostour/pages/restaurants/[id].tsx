@@ -12,9 +12,10 @@ const Restaurant = () => {
   const restaurantId = query.id as string;
   const { data } = useRestaurant(restaurantId || "");
   return (
-    <Container>
-      <Header />
-      <Carousel showArrows={false} banner className="w-[100%]" />
+    <>
+      <div>
+        <Carousel showArrows={false} banner className="w-[100%]" />
+      </div>
 
       <Details
         name={data?.name}
@@ -24,7 +25,7 @@ const Restaurant = () => {
         open_hours={data?.open_hours}
       />
       <Gallery href="restaurants" />
-    </Container>
+    </>
   );
 };
 
