@@ -1,5 +1,6 @@
 import React from "react";
 import { useWindowWidth } from "../../../lib/hooks/useWindowWidth";
+import Chat from "../../Chat/Chat";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import Container from "../Container/Container";
@@ -15,6 +16,9 @@ const Layout = ({ children }: Props) => {
     <Container>
       {!mobile ? <Header /> : <SandwichMenu />}
       <div className="min-h-[60vh]">{children}</div>
+      <div className="fixed z-20 ml-auto right-[80px] w-max bottom-[55px]">
+        <Chat />
+      </div>
       <Footer />
     </Container>
   );

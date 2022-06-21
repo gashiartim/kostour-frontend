@@ -5,7 +5,7 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <div className="lg:mt-32 mt-[80%]  bg-[#1C3457] dark:bg-[#22272E] flex flex-col items-center justify-center p-9 md:pt-28  relative top-0  left-[calc(-50vw+50%)] w-[100vw]">
+    <div className="lg:mt-32 mt-[80%]  bg-[#1C3457] dark:bg-[#22272E] flex flex-col items-center justify-center p-9 md:pt-28  relative top-0  left-[calc(-50vw+50%)] w-[99.5vw]">
       <div className="container flex justify-between w-full h-max md:flex md:w-10/12 md:mx-auto">
         <div className="mx-auto md:mr-32" onClick={() => router.push("/")}>
           <Icon icon="KOS-TOUR" className="text-black h-14 " />
