@@ -37,7 +37,7 @@ const Banner = () => {
       <div className="mx-auto absolute top-[50%] w-full px-5 xl:px-0">
         <div className="max-w-[676px] w-full flex items-center justify-between m-auto p-4  md:h-[66px] rounded-[36px] border border-opacity-25 border-white bg-[#0F1216] bg-opacity-75 focus-within:border-blue">
           <input
-            className="ml-2 text-white bg-transparent rounded-full focus:outline-none md:pl-6 placeholder-shown:truncate"
+            className="w-[73%] ml-2 text-white bg-transparent rounded-full focus:outline-none md:pl-6"
             type="text"
             placeholder="Search your favourite location..."
             value={searchInput}

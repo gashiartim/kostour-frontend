@@ -38,7 +38,7 @@ const Locations = () => {
     );
   };
   return (
-    <div className="bg-black">
+    <div className="dark:bg-black">
       {/* <Header /> */}
 
       <Select
@@ -55,6 +55,7 @@ const Locations = () => {
         // placeholder={"Select category"}
         valueClassName="dark:!text-white"
         onChange={handleCategoryChange}
+        hideLabel={true}
       />
       <LoadingBoundary
         loading={isLoading}

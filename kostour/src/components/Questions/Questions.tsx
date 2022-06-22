@@ -1,6 +1,6 @@
 import { useState } from "react";
 import cs from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {
   id: number;

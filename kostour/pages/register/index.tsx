@@ -4,7 +4,7 @@ import RegisterForm from "../../src/components/RegisterForm/RegisterForm";
 
 const Register = () => {
   return (
-    <div className="flex justify-center  bg-[#EAF1FB]  md:grid md:grid-cols-2">
+    <div className="flex justify-center  bg-[#EAF1FB] dark:bg-transparent dark:!text-white  md:grid md:grid-cols-2">
       <div className="absolute z-50 mx-2.5 md:relative md:mx-auto mt-[153px]">
         <RegisterForm />
       </div>

@@ -3,7 +3,6 @@ import cs from "classnames";
 import styles from "./Icon.module.css";
 import { IconDefinition, IconSvg } from "./Icon.generated";
 
-
 interface Props {
   icon?: IconDefinition;
   alt?: string;

@@ -14,8 +14,9 @@ const navItems = [
   { title: "home", link: "/" },
   { title: "restaurants", link: "/restaurants" },
   { title: "locations", link: "/locations" },
-  { title: "tours", link: "/tours" },
+  // { title: "tours", link: "/tours" },
   { title: "about", link: "/about" },
+  { title: "login", link: "/login" },
 ];
 
 const Header = ({ className }: Props) => {
@@ -29,9 +30,11 @@ const Header = ({ className }: Props) => {
         <div className="flex flex-row items-center justify-between">
           <SwitchMode />
 
-          <div className="relative ">
-            <UserDropdown />
-          </div>
+          {user && (
+            <div className="relative ">
+              <UserDropdown />
+            </div>
+          )}
         </div>
         <div className="flex flex-row items-center justify-between">
           <div
@@ -42,22 +45,26 @@ const Header = ({ className }: Props) => {
           </div>
 
           <div className="font-bold ">
-            <ul className="hidden sm:flex">
-              {navItems.map((item, idx) => (
-                <li
-                  key={item.title}
-                  className={cs(
-                    "mx-3.5  uppercase hover:decoration-blue-800  hover:underline bg-blue  transition-w duration-500 hover:w-[98%] text-base font-bold md:tracking-[4px] text-white",
-                    {
-                      "text-primary decoration-sky-500/30":
-                        pathname === item.link,
-                      "mr-0": idx >= navItems.length - 1,
-                    }
-                  )}
-                >
-                  <Link href={item.link}>{item.title}</Link>
-                </li>
-              ))}
+            <ul className="hidden text-white sm:flex">
+              {navItems.map((item, idx) => {
+                if (user && item.link === "/login") return null;
+
+                return (
+                  <li
+                    key={item.title}
+                    className={cs(
+                      "mx-3.5  uppercase hover:decoration-blue-800  hover:underline bg-blue  transition-w duration-500 hover:w-[98%] text-base font-bold md:tracking-[4px]",
+                      {
+                        "text-primary decoration-sky-500/30":
+                          pathname === item.link,
+                        "mr-0": idx >= navItems.length - 1 && user,
+                      }
+                    )}
+                  >
+                    <Link href={item.link}>{item.title}</Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

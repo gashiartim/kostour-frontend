@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import city from "../../../assets/images/Rugove.jpeg";
+import { capitalize } from "../../../lib/helpers/capitalize";
 
 type Props = {
   id: string;
@@ -42,13 +43,18 @@ const CityCard = ({ name, thumbnail, id, href, numberOfVisits }: Props) => {
           )}
         </div>
       </Link>
-      <div className="absolute inset-x-0 bottom-0 flex justify-between w-full p-5 text-xs leading-4 text-center text-white">
-        <div className="text-white cursor-pointer text-md">{name}</div>
-        <div v-if="icon" className="text-sm text-white cursor-pointer">
-          <i className="mr-1 fa fa-utensils"></i>
-          <b>{numberOfVisits}</b>
+      <div className="absolute inset-x-0 bottom-0 z-10 flex justify-between w-full p-5 text-xs leading-4 text-center text-white">
+        <div className="text-white cursor-pointer text-md">
+          {capitalize(name || "")}
         </div>
+        {href === "locations" && (
+          <div v-if="icon" className="text-sm text-white cursor-pointer">
+            <i className="mr-1 fa fa-utensils"></i>
+            <b>{numberOfVisits}</b>
+          </div>
+        )}
       </div>
+      <div className="absolute w-full  bottom-0 bg-gradient-to-t from-black h-[100px]"></div>
     </div>
   );
 };

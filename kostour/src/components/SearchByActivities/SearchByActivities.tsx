@@ -36,7 +36,10 @@ const SearchByActivities = () => {
             />
             <div className="absolute bottom-0 pb-3 pl-5 text-3xl font-medium text-white cursor-pointer">
               {data[0].name || ""}
-              <p className="text-base font-normal">4 Locations</p>
+              <p className="text-base font-normal">
+                {data[0]?.locations?.length + " "}
+                Locations
+              </p>
             </div>
           </div>
         )}
@@ -61,7 +64,9 @@ const SearchByActivities = () => {
                 />
                 <div className="absolute bottom-0 pb-3 pl-5 text-3xl font-medium text-white cursor-pointer">
                   {data[1].name || ""}
-                  <p className="text-base font-normal">4 Locations</p>
+                  <p className="text-base font-normal">
+                    {data[1]?.locations?.length} Locations
+                  </p>
                 </div>
               </div>
             )}
@@ -86,7 +91,9 @@ const SearchByActivities = () => {
                 />
                 <div className="absolute bottom-0 pb-3 pl-5 text-3xl font-medium text-white cursor-pointer ">
                   {data[2].name || ""}
-                  <p className="text-base font-normal">4 Locations</p>
+                  <p className="text-base font-normal">
+                    {data[2]?.locations?.length} Locations
+                  </p>
                 </div>
               </div>
             )}
@@ -109,7 +116,9 @@ const SearchByActivities = () => {
                 />
                 <div className="absolute bottom-0 pb-3 pl-5 text-3xl font-medium text-white cursor-pointer">
                   {data[3].name || ""}
-                  <p className="text-base font-normal">4 Locations</p>
+                  <p className="text-base font-normal">
+                    {data[3]?.locations?.length} Locations
+                  </p>
                 </div>
               </div>
             )}

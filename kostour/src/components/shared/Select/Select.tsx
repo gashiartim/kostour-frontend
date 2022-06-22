@@ -19,6 +19,7 @@ interface Props {
   valueClassName?: string;
   options: Array<Option>;
   value: Option | undefined;
+  hideLabel?: boolean;
   onChange: (event: any, name: string) => void;
   inputRef?: any;
   onClear?: (fieldName: string) => void;
@@ -43,6 +44,7 @@ export const Select = ({
   isLoading = false,
   selectedOptions,
   valueClassName,
+  hideLabel = false,
 }: Props) => {
   function handleChange(e: any) {
     onChange(e, name);
@@ -57,9 +59,11 @@ export const Select = ({
         {label}
       </label> */}
 
-      <label htmlFor={name} className={`text-sm font-medium mb-2`}>
-        {label}
-      </label>
+      {!hideLabel && (
+        <label htmlFor={name} className={`text-sm font-medium mb-2`}>
+          {label}
+        </label>
+      )}
       <Listbox value={value} onChange={handleChange} refName={inputRef}>
         <div className="relative">
           <Listbox.Button

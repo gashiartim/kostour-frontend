@@ -18,8 +18,8 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<LoginInput> = (data) => login.mutate(data);
   return (
-    <div className="md:mt-[37px] mt-6 md:w-max">
-      <h1 className="text-4xl leading-10">Welcome back</h1>
+    <div className="md:mt-[37px] mt-6 md:w-max dark:!text-white">
+      <h1 className="text-4xl leading-10 dark:text-white">Welcome back</h1>
       <h1 className="text-sm text-[#676767] ">
         Please enter your details or
         <Link href="/register" passHref>
@@ -40,22 +40,23 @@ const LoginForm = () => {
           className="mt-2"
           label="Password"
           name="password"
+          type="password"
           register={register}
           placeholder="*********"
           hiddenLabel={false}
           error={errors.password?.message}
         />
-        <div className="w-[330px] flex justify-between mt-3 mb-6">
-          <span className="text-[#292828] text-[11px]">
+        <div className="w-[330px] flex justify-between mt-3 mb-6 text-[#292828] dark:text-white">
+          <span className="text-[11px]">
             <input type="checkbox" className="mr-[9px] relative top-0.5" />
             Remember Me
           </span>
-          <a href="#" className="text-[#292828] text-[11px]">
+          <a href="#" className="text-[11px]">
             Forgot Password?
           </a>
         </div>
         <Button type="submit">Log in</Button>
-        <p className="my-2 text-center">or</p>
+        <p className="my-2 text-center dark:text-white">or</p>
         <Button className="!bg-white text-black mb-3">
           <Icon style={{ width: "24px", marginRight: "10px" }} icon="google" />
           Sign in with Google

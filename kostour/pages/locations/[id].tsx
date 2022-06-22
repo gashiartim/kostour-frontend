@@ -1,5 +1,3 @@
-import Footer from "../../src/components/Footer/Footer";
-import Header from "../../src/components/Header/Header";
 import { Carousel } from "../../src/components/shared/Carousel/Carousel";
 // import rugove from "../../src//assets/images/Rugove.jpeg";
 import { useLocation } from "../../src/lib/hooks/queries/useLocation";
@@ -36,7 +34,7 @@ const Location = () => {
         whatCanYouDo={data?.whatCanYouDo}
       />
       <Gallery
-        href="restaurants"
+        href="locations"
         images={data?.images?.map((img: IThumbnail) => ({ ...img })) || []}
       />
     </>

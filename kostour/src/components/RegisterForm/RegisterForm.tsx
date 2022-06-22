@@ -22,7 +22,7 @@ const RegisterForm = () => {
       <h1 className="text-sm text-[#676767] ">
         Please enter your details or
         <Link href="/login" passHref>
-          <a className="underline"> login now </a>
+          <a className="underline"> Login now </a>
         </Link>
       </h1>
       <form className="mt-8 w-[341px]" onSubmit={handleSubmit(onSubmit)}>

@@ -9,6 +9,8 @@ export type CreateLocationFormValues = {
   fullAddress: string;
   categories: string[];
   thumbnail?: any;
+  lat: string;
+  lng: string;
 };
 
 export const CreateLocationFormSchema = YUP.object().shape({
@@ -16,6 +18,8 @@ export const CreateLocationFormSchema = YUP.object().shape({
   description: YUP.string().required("Description is required"),
   whatCanYouDo: YUP.string().required("What can you do is required"),
   fullAddress: YUP.string().nullable(),
+  lat: YUP.string().required("Latitude is required"),
+  lng: YUP.string().required("Longitude is required"),
   categories: YUP.array()
     .of(
       YUP.object()

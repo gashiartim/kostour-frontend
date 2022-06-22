@@ -30,7 +30,7 @@ const Tabs = ({ tabs, panels }: Props) => {
                   className={cs({
                     "text-lg leading-[23px] text-[#B4B5B7] mb-4 focus:outline-none default-transition":
                       true,
-                    "px-[22px] lg:py-[14px] lg:border-l-[3px] focus:outline-none  border-[#3F86F0] !text-white font-bold":
+                    "px-[22px] lg:py-[14px] lg:border-l-[3px] focus:outline-none  border-[#3F86F0] dark:!text-white font-bold":
                       selected,
                   })}
                 >

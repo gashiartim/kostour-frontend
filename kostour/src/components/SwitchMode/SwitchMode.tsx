@@ -1,16 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
+import localforage from "localforage";
+
+const THEME_COLOR_LOCALSTORAGE_KEY = "THEME_MODE";
 
 const SwitchMode = () => {
   const [enabled, setEnabled] = useState(false);
 
+  async function handleModeChange() {
+    !enabled
+      ? document.documentElement.classList.remove("dark")
+      : document.documentElement.classList.add("dark");
+
+    !enabled
+      ? await localforage.setItem(THEME_COLOR_LOCALSTORAGE_KEY, "LIGHT")
+      : await localforage.setItem(THEME_COLOR_LOCALSTORAGE_KEY, "DARK");
+  }
+
+  async function loadThemeMode() {
+    const mode = await localforage.getItem(THEME_COLOR_LOCALSTORAGE_KEY);
+
+    if (mode && mode === "DARK") {
+      return setEnabled(true);
+    }
+    if (mode && mode === "LIGHT") {
+      return setEnabled(false);
+    }
+    if (!mode) {
+      return setEnabled(false);
+    }
+  }
+
+  useEffect(() => {
+    loadThemeMode();
+
+    // handleModeChange();
+  }, []);
+
+  useEffect(() => {
+    // loadThemeMode();
+
+    handleModeChange();
+  }, [enabled]);
+
   return (
     <div className="flex text-[#B0B0B0]">
-      <p className="mr-3">{enabled ? "Dark Mode" : "Light Mode"}</p>
+      <p className="mr-3">Dark Mode</p>
       <Switch
         checked={enabled}
         onChange={setEnabled}
-        className="bg-black opacity-50 relative inline-flex h-6 w-14 items-center rounded-full"
+        className="relative inline-flex items-center h-6 bg-black rounded-full opacity-50 w-14"
       >
         <span className="sr-only">Mode</span>
         <span
@@ -23,7 +62,7 @@ const SwitchMode = () => {
             enabled ? "-translate-x-3 text-sm" : "translate-x-2 text-sm"
           } `}
         >
-          {enabled ? "OFF" : "ON"}
+          {!enabled ? "OFF" : "ON"}
         </span>
       </Switch>
     </div>

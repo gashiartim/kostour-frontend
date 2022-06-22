@@ -11,7 +11,7 @@ const Content = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between">
         {contents.map((content) => (
           <div key={content.id} className="p-5 mb-10 lg:mb-0 lg:p-0">
-            <h1 className="text-3xl text-white pb-[20px] font-bold text-center lg:text-left">
+            <h1 className="text-3xl dark:text-white pb-[20px] font-bold text-center lg:text-left">
               {content.title}
             </h1>
             <p className="max-w-[350px]">{content.content}</p>
@@ -19,7 +19,7 @@ const Content = () => {
         ))}
       </div>
 
-      <h1 className="text-center text-5xl mt-[200px] mb-[75px] font-bold text-white">
+      <h1 className="text-center text-5xl mt-[200px] mb-[75px] font-bold dark:text-white">
         Why should I visit Kosovo ?
       </h1>
 
