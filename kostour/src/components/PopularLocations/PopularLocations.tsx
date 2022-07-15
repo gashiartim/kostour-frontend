@@ -14,7 +14,7 @@ const PopularLocations = () => {
 
       <div className="grid justify-center gap-4 mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:w-max">
         {!isLoading &&
-          data?.data?.map((location: any, idx: number) => {
+          data?.data?.slice(0, 8).map((location: any, idx: number) => {
             return <CityCard key={idx} {...location} href={"locations"} />;
           })}
       </div>
